@@ -28,7 +28,7 @@ const Genres = ({ genres, setGenres, selectedGenres, setSelectedGenres, type }) 
   };
 
   return (
-    <Flex direction="column" mb="5" align="center">
+    <Flex direction="column" mb="5" align="center" display={{ base: "none", md: "flex" }}>
       <Flex h="100px" gap="4" justify="center" flexWrap="wrap" mt="5" mx="10" mb={{ base: "300px", md: "20px", lg: "0" }}>
         {genres &&
           genres.map((gen, _id) => (
