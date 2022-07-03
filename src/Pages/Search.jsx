@@ -29,43 +29,47 @@ const Search = () => {
 
   return (
     <>
-      <Flex gap="5" mb="10">
-        <Input
-          type="text"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Nhập tên phim bạn cần tìm kiếm"
-          _placeholder={{ color: "black" }}
-          shadow="xl"
-        />
-        <Button
-          onClick={() => {
-            fetchSearch();
-            setSearchTerm("");
-          }}
-        >
-          <BsSearch />
-        </Button>
-        <Button
-          bgGradient="linear(to-t,red,green)"
-          color="white"
-          onClick={() => {
-            setType("movie");
-            toast.info("Tìm kiếm phim lẻ");
-          }}
-        >
-          Phim lẻ
-        </Button>
-        <Button
-          bgGradient="linear(to-t,red,green)"
-          color="white"
-          onClick={() => {
-            setType("tv");
-            toast.info("Tìm kiếm phim bộ");
-          }}
-        >
-          Phim bộ
-        </Button>
+      <Flex gap="5" mb="10" direction={{ base: "column", md: "row" }} w="100%">
+        <Flex gap="5" w={["100%", "80%"]}>
+          <Input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Nhập tên phim... "
+            _placeholder={{ color: "black", fontWeight: "600" }}
+            shadow="xl"
+          />
+          <Button
+            onClick={() => {
+              fetchSearch();
+              setSearchTerm("");
+            }}
+          >
+            <BsSearch />
+          </Button>
+        </Flex>
+        <Flex gap="5" justify="center">
+          <Button
+            bgGradient="linear(to-t,red,green)"
+            color="white"
+            onClick={() => {
+              setType("movie");
+              toast.info("Tìm kiếm phim lẻ");
+            }}
+          >
+            Phim lẻ
+          </Button>
+          <Button
+            bgGradient="linear(to-t,red,green)"
+            color="white"
+            onClick={() => {
+              setType("tv");
+              toast.info("Tìm kiếm phim bộ");
+            }}
+          >
+            Phim bộ
+          </Button>
+        </Flex>
       </Flex>
       <Flex flexWrap="wrap" justify={["center", "unset"]} gap={{ base: "3", lg: "10" }}>
         {content &&
